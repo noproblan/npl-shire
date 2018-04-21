@@ -8,31 +8,39 @@ import { map } from 'rxjs/operators';
 import gql from 'graphql-tag';
 import {Lan,Query} from './graphql-types';
 
+const allLans = gql`
+  query AllLans {
+    lans {
+      id
+      name
+      startsAt
+      endsAt
+    }
+  }
+`;
+
 @Injectable()
 export class LansService {
 
-  readonly lansEndpoint = '/lans';
+  // readonly lansEndpoint = '/lans';
 
   constructor(private apollo: Apollo) {}
 
-  getLans(): Observable<Lan[]> {
+  getLans() {
     // return null;
     // return this.httpClient.get<Lan[]>(`${environment.apiUrl}${this.lansEndpoint}`);
 
     return this.apollo.watchQuery<Query>({
-      query: gql`
-        query allCourses {
-          allLans {
-            id
-            name
-          }
-        }
-      `
-    })
-      .valueChanges
-      .pipe(
-        map(result => result.data.allLans)
-      );
+      query: allLans
+    }).valueChanges;
+
+    // return this.apollo.watchQuery<Query>({
+    //   query: allLans
+    // })
+    //   .valueChanges
+    //   .pipe<Lan[]>(
+    //     map(result => result.data.lans)
+    //   );
   }
 
   getLan(id: number): Observable<Lan> {
