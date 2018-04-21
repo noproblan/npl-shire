@@ -15,6 +15,7 @@ class GraphqlController < ApplicationController
 
   private
 
+  # rubocop:disable Metrics/MethodLength
   # Handle form data, JSON body, or a blank value
   def ensure_hash(ambiguous_param)
     case ambiguous_param
@@ -32,4 +33,5 @@ class GraphqlController < ApplicationController
       raise ArgumentError, "Unexpected parameter: #{ambiguous_param}"
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end
