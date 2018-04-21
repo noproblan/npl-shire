@@ -1,0 +1,42 @@
+<%= form_with(model: lan, local: true) do |form| %>
+  <% if lan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lan.errors.count, "error") %> prohibited this lan from being saved:</h2>
+
+      <ul>
+      <% lan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :lan_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :starts_at %>
+    <%= form.date_select :starts_at, id: :lan_starts_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ends_at %>
+    <%= form.date_select :ends_at, id: :lan_ends_at %>
+  </div>
+
+  <div class="field">
+    <%= form.label :planned_seats %>
+    <%= form.number_field :planned_seats, id: :lan_planned_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :lan_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

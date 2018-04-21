@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ticket_option.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @ticket_option.price %>
+</p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @ticket_option.ticket %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_option_path(@ticket_option) %> |
+<%= link_to 'Back', ticket_options_path %>

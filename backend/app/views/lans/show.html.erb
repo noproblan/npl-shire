@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lan.name %>
+</p>
+
+<p>
+  <strong>Starts at:</strong>
+  <%= @lan.starts_at %>
+</p>
+
+<p>
+  <strong>Ends at:</strong>
+  <%= @lan.ends_at %>
+</p>
+
+<p>
+  <strong>Planned seats:</strong>
+  <%= @lan.planned_seats %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lan.description %>
+</p>
+
+<p>
+  <strong>Tickets:</strong>
+  <%= link_to 'Tickets', tickets_path(ticket: {lan_id: @lan.id}) %>
+</p>
+
+<%= link_to 'Edit', edit_lan_path(@lan) %> |
+<%= link_to 'Back', lans_path %>

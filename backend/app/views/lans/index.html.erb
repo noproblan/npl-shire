@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Starts at</th>
+      <th>Ends at</th>
+      <th>Planned seats</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lans.each do |lan| %>
+      <tr>
+        <td><%= lan.name %></td>
+        <td><%= lan.starts_at %></td>
+        <td><%= lan.ends_at %></td>
+        <td><%= lan.planned_seats %></td>
+        <td><%= lan.description %></td>
+        <td><%= link_to 'Show', lan %></td>
+        <td><%= link_to 'Edit', edit_lan_path(lan) %></td>
+        <td><%= link_to 'Destroy', lan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lan', new_lan_path %>
