@@ -17,7 +17,7 @@ Types::QueryType = GraphQL::ObjectType.define do
 
   field :tickets, Types::TicketType do
     description 'All tickets'
-    #guard ->(_obj, _args, ctx) { ctx[:current_user].present? }
+    # guard ->(_obj, _args, ctx) { ctx[:current_user].present? }
     resolve lambda { |_obj, _args, ctx|
       ctx[:current_user].tickets.order(created_at: :desc)
     }

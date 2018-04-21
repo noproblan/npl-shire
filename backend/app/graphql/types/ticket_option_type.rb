@@ -1,5 +1,5 @@
 Types::TicketOptionType = GraphQL::ObjectType.define do
-  name "TicketOption"
+  name 'TicketOption'
   description ''
 
   field :id, !types.ID
