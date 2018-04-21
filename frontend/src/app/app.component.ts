@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { LansService } from "./core/lans.service";
 
 @Component({
   selector: 'npl-root',
@@ -8,4 +9,11 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'npl';
 
+  constructor(private lanService: LansService) {}
+
+  ngOnInit() {
+    this.lanService.getLans().subscribe(
+      result => console.log(result)
+    );
+  }
 }
