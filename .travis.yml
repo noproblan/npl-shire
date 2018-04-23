@@ -18,11 +18,13 @@ install:
 - bundle exec rails db:create db:schema:load
 script:
 - "./bin/check"
+before_deploy:
+  cd ./backend/
 deploy:
   provider: heroku
   api_key:
     secure: 4MZM5T6AgeGyhffXLvw4zy8Mr4JzybnGYJyHZ8FXE2oUIYu0dce6KMNtoyCGeYQZJvIwFMz/GmTF6H+qixbXWbpwmi+yQMHnwMY5aAXOc3tRwEh7eOAplhLPDMqOOmXsjurHyd4UhC+fNyooNU0e9cZiic6b8N/Gwn+UrTsm2f3OuSSxWtVmSctlDXnhkw1IzhcAS886kCLYnA0KLXhkq4jvBVolLgGNCdIaMUMb2xLnaGilgTfMqeSgHVw66d0XATmg4Rmkt8r2ep3EjG4Js6/bowhtxffAvm8d0IO5AwfkQxGKFaGyeJtiOfOuvQwZD2pAl6sPArw/xFEsJ4F0o+Y+e567/eGK8YTouzRG0EyBEIRCvGTkVeYXDfEPbzVMzrjcTmiWc/Jrwd12bLSVvsK4I3QzlloNY2VfId1FPCSDjqTPLA/PQb+MCqyd6cfOyYYkpoSMia/4sHFHMIyDrpSfGS1NcgUBxrd5ilYWMd7NFeOTGDEIoeCOfmSgvq/Bw4FtZF6fBme7uY9Zy47skLJTxZjgfqPrBkTo+4nDs/9xDPk9THvzxHxZLBzSyC1b9xwGZtZUvHnHN0BVLd+74QW9FX7VrSMAwZgXVdok0zBa30LTR9mfKnPUb7UIdz18wiSbRn5tB7oy+1j0LMmbHE/dfqLjARMGMDg3XlWOGZg=
   app:
-    master: npl-shire-master
-    develop: npl-shire-develop
+    master: npl-shire-backend-master
+    develop: npl-shire-backend-develop
 
