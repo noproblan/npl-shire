@@ -9,7 +9,6 @@ cache:
   directories:
   - "/home/travis/.rvm/"
   - frontend/node_modules
-  - backend/.bundle
   - backend/vendor/bundle
 install:
 - cd ./backend/
