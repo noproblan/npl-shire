@@ -15,7 +15,6 @@ install:
   - cd ./backend/
   - rvm install $(cat .ruby-version)
   - bundle install --without production development --deployment --jobs 3 --retry 3
-  - cp config/application.example.yml config/application.yml
   - bundle exec rails db:create db:schema:load
 script:
   - ./bin/check
