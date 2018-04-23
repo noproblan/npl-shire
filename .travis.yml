@@ -1,29 +1,29 @@
 language: node_js
 services:
-  - postgresql
+- postgresql
 node_js:
-  - "8"
+- '8'
 cache:
   apt: true
   bundler: true
   directories:
-    - /home/travis/.rvm/
-    - frontend/node_modules
-    - backend/.bundle
-    - backend/vendor/bundle
+  - "/home/travis/.rvm/"
+  - frontend/node_modules
+  - backend/.bundle
+  - backend/vendor/bundle
 install:
-  - cd ./backend/
-  - rvm install $(cat .ruby-version)
-  - bundle install --without production development --deployment --jobs 3 --retry 3
-  - bundle exec rails db:create db:schema:load
+- cd ./backend/
+- rvm install $(cat .ruby-version)
+- bundle install --without production development --deployment --jobs 3 --retry 3
+- bundle exec rails db:create db:schema:load
 script:
-  - ./bin/check
+- "./bin/check"
 deploy:
+  matrix:
   - before_deploy: cd ./backend/
     provider: heroku
-    api_key:
-      secure: UKfPYmzU+co++Q8IN/Zz8VvnZPQ47Gp/oSzs6fzkYPb6WJfgyHAxDTlOtEvKwTyjcZC4Tu6Zjs3a2wTs56dXvI816WxlC9R5xSC9pQdQt/JNFRZazTTxkcnCl45E4Z+eMmY1E3vxkhteyV736DzRJKjNDRE2HFrwrSD5Ube4DMRfTNf/wRIM30QISun02UIrRU1KyoTe3ITkMPxpvHGHnKrwk3yRLC7u/k1qJ+PA82Pwb38pO20nxzA/gGzMDLqZaO7VIKjl24o6KdxeMQE0ZWd6SU5Bn49i95m5fZnzm2alIs1TPV3GBrfsTFRZua7NAU0euSQl3UcoqvoVVujbwwvxbm3jb/nmpYKCZV6ViaRrj+LQFyYMjgjUm82b7Vh2Gz7mJWdsPlq47e3hGyWaBWp6eSlRIuNwLorZy5Gazq/WKykyQqDrVTTIRGVd0iTVeNTTpoQlFkLBISJHX3TbPXb1P6YI4sQrjg3FqWfyVQNW1Eompr0e5MNqQaSNkSAdI82h6ToVEN5KeVfLOEGMjfh7QPyy6FJ0t2gwFo3N8zlTaFjkoW41zVznlHmn4/IeAalvxmjPRRcLC2KuYIsSny1JCFxSofzV/O+EocB7yVMZ1svyQdvVFG2B1KbtQV26L2K51S4ImdAkGMyx1qJAUJEh4Ei9u+nANQTUovMvmCU=
     app:
       master: npl-shire-backend-master
       develop: npl-shire-backend-develop
-
+    api_key:
+      secure: W/ayZ/xsEizrpTmYdpfxdjE7e6EhYFz8gqq1kRuUIy2uNf1j1zsZffsE3itdtcXfnT9Mg9MTvG1FJY6CQclHH1dFXUGoesr9ISDDCDRQtrZUHz9TjGcLPMK0lFFFy1mn/2WD7NAKDYB5mDC4SQbU3bM4Ltv/WWF1pscPrIvH48Ef5VBGilwoRkHo4ycLhliYIRJqOj8W6oUME3unQqBMrVzQxcx9ra3tzJVJkqRqw0Uas+r9xv5PbeP26dMKlEW/bbCtC3hR0Qz/ptsKOgWe9b80m0caiTYkuw+rR1/rGyotxDjqPAZQ27jqX4skSJOW/EYtFktJ4M3Js/4OK7jxLtnSnjxCNMGrFXzToG7lzv7QUqsPKI4eqXBl2qgUdoRWAD2gQZPnC/hFWW+jfm/wfhfpq3BziuK1GbDXzlLGP5nJMpNl3Ifa4NhAgD9J8OOy2olwSLtv0D0awdP7XOCuJshk0nI8j09l+JFcE9A+OwaUDGqdi040QsivXS4tq3fBNzLuT/7+gaUqR2FdP1bOiyIP/S1i61Nn1dvPgB4BfJ+o0tIDRDnePKM0wlGlqMEzjpCuoPS70Gtd6gjouJ9SbDIwEZQo/5cclFHOHCFp3UqIRrhsnNVe9DiyE+mS/N9xM7xNbqr6Nd156fdBFse3zEpdCKuUnJEDfhWHdxxgbx0=
