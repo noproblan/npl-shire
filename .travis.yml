@@ -18,8 +18,6 @@ install:
 - bundle exec rails db:create db:schema:load
 script:
 - "./bin/check"
-before_deploy:
-  cd ./backend/
 deploy:
   provider: heroku
   api_key:
