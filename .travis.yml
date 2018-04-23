@@ -19,11 +19,10 @@ install:
 script:
 - "./bin/check"
 deploy:
-  matrix:
-  - before_deploy: cd ./backend/
-    provider: heroku
-    app:
-      master: npl-shire-backend-master
-      develop: npl-shire-backend-develop
-    api_key:
-      secure: W/ayZ/xsEizrpTmYdpfxdjE7e6EhYFz8gqq1kRuUIy2uNf1j1zsZffsE3itdtcXfnT9Mg9MTvG1FJY6CQclHH1dFXUGoesr9ISDDCDRQtrZUHz9TjGcLPMK0lFFFy1mn/2WD7NAKDYB5mDC4SQbU3bM4Ltv/WWF1pscPrIvH48Ef5VBGilwoRkHo4ycLhliYIRJqOj8W6oUME3unQqBMrVzQxcx9ra3tzJVJkqRqw0Uas+r9xv5PbeP26dMKlEW/bbCtC3hR0Qz/ptsKOgWe9b80m0caiTYkuw+rR1/rGyotxDjqPAZQ27jqX4skSJOW/EYtFktJ4M3Js/4OK7jxLtnSnjxCNMGrFXzToG7lzv7QUqsPKI4eqXBl2qgUdoRWAD2gQZPnC/hFWW+jfm/wfhfpq3BziuK1GbDXzlLGP5nJMpNl3Ifa4NhAgD9J8OOy2olwSLtv0D0awdP7XOCuJshk0nI8j09l+JFcE9A+OwaUDGqdi040QsivXS4tq3fBNzLuT/7+gaUqR2FdP1bOiyIP/S1i61Nn1dvPgB4BfJ+o0tIDRDnePKM0wlGlqMEzjpCuoPS70Gtd6gjouJ9SbDIwEZQo/5cclFHOHCFp3UqIRrhsnNVe9DiyE+mS/N9xM7xNbqr6Nd156fdBFse3zEpdCKuUnJEDfhWHdxxgbx0=
+  provider: heroku
+  api_key:
+    secure: 4MZM5T6AgeGyhffXLvw4zy8Mr4JzybnGYJyHZ8FXE2oUIYu0dce6KMNtoyCGeYQZJvIwFMz/GmTF6H+qixbXWbpwmi+yQMHnwMY5aAXOc3tRwEh7eOAplhLPDMqOOmXsjurHyd4UhC+fNyooNU0e9cZiic6b8N/Gwn+UrTsm2f3OuSSxWtVmSctlDXnhkw1IzhcAS886kCLYnA0KLXhkq4jvBVolLgGNCdIaMUMb2xLnaGilgTfMqeSgHVw66d0XATmg4Rmkt8r2ep3EjG4Js6/bowhtxffAvm8d0IO5AwfkQxGKFaGyeJtiOfOuvQwZD2pAl6sPArw/xFEsJ4F0o+Y+e567/eGK8YTouzRG0EyBEIRCvGTkVeYXDfEPbzVMzrjcTmiWc/Jrwd12bLSVvsK4I3QzlloNY2VfId1FPCSDjqTPLA/PQb+MCqyd6cfOyYYkpoSMia/4sHFHMIyDrpSfGS1NcgUBxrd5ilYWMd7NFeOTGDEIoeCOfmSgvq/Bw4FtZF6fBme7uY9Zy47skLJTxZjgfqPrBkTo+4nDs/9xDPk9THvzxHxZLBzSyC1b9xwGZtZUvHnHN0BVLd+74QW9FX7VrSMAwZgXVdok0zBa30LTR9mfKnPUb7UIdz18wiSbRn5tB7oy+1j0LMmbHE/dfqLjARMGMDg3XlWOGZg=
+  app:
+    master: npl-shire-master
+    develop: npl-shire-develop
+
