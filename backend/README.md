@@ -1,24 +1,32 @@
-# README
+# npl-shire Rails backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+    bin/setup
 
-* Ruby version
+## Run
 
-* System dependencies
+    bin/run
 
-* Configuration
+## Test
 
-* Database creation
+For the automated test suite run:
 
-* Database initialization
+    bin/check
 
-* How to run the test suite
+You can manually test the app under http://localhost:3000/graphiql
 
-* Services (job queues, cache servers, search engines, etc.)
+### Login
 
-* Deployment instructions
+```graphql
+mutation {
+  signInUser(email: {
+    email: "sadi@noproblan.ch", 
+    password: "12345678"}) {
+    token
+  }
+}
+```
 
-* ...
+Copyright 2018, LAN-Verein Berg under the MIT license
+
