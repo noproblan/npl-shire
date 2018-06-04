@@ -21,7 +21,7 @@ class Resolvers::SignInUser < GraphQL::Function
 
     # use Ruby on Rails - ActiveSupport::MessageEncryptor, to build a token
     crypt = ActiveSupport::MessageEncryptor.new(Rails.application.secrets.secret_key_base.byteslice(0..31))
-    token = crypt.encrypt_and_sign("user-id:#{ user.id }")
+    token = crypt.encrypt_and_sign("user-id:#{user.id}")
     ctx[:session][:token] = token
 
     ctx[:warden].set_user(user) # TODO: remove as soon as JWT is in place
