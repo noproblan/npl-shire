@@ -6,7 +6,8 @@ class GraphqlController < ApplicationController
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      # Query context goes here, for example:
+      warden: warden, # TODO: remove as soon as JWT is in place
+      session: session,
       current_user: current_user
     }
     result = NplWebsiteSchema.execute(query, variables: variables, context: context, operation_name: operation_name)

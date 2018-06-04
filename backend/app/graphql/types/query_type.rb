@@ -8,18 +8,17 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
-  field :lans, types[Types::LanType] do
-    description 'All lans'
+  field :lan, Types::LanType do
+    description 'Currently running or upcoming LAN'
     resolve lambda { |_obj, _args, _ctx|
-      Lan.all.order(created_at: :desc)
+      Lan.first_current_or_upcoming
     }
   end
 
-  field :tickets, Types::TicketType do
-    description 'All tickets'
-    # guard ->(_obj, _args, ctx) { ctx[:current_user].present? }
+  field :ticket, Types::TicketType do
+    description 'My ticket'
     resolve lambda { |_obj, _args, ctx|
-      ctx[:current_user].tickets.order(created_at: :desc)
+      Ticket.find_by(user: ctx[:current_user], lan: Lan.first_current_or_upcoming)
     }
   end
 end
